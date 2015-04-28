@@ -1,0 +1,13 @@
+colordiff
+build-essential
+cmake
+curl
+git 
+openssh-server 
+python-dev
+python-pip
+tmux
+vim
+vim-gnome
+virtualbox
+zsh
