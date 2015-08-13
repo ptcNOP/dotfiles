@@ -15,7 +15,7 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo add-apt-repository ppa:pi-rho/dev
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install build-essential cmake colordiff curl git openssh-server python-pip terminator tmux vim vim-gnome zsh
+sudo apt-get install build-essential cmake colordiff curl git openssh-server python-pip terminator tmux vim vim-gnome zxclip zsh 
 
 cd $HOME
 ssh-keygen -t rsa
@@ -23,7 +23,7 @@ ssh-keygen -t rsa
 Upload ~/.ssh/id_rsa.pub to GitHub.
 ```sh
 git clone https://github.com/ptcNOP/dotfiles.git
-python dotfiles/setup_linux.py
+python dotfiles/setup_env.py
 source dotfiles/setup_vim.sh
 
 cd $HOME/.vim/bundle/YouCompleteMe
@@ -31,8 +31,13 @@ cd $HOME/.vim/bundle/YouCompleteMe
 
 cd $HOME
 chsh -s `which zsh`
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+  
 mkdir -p .cache/wheel .cache/pip
 sudo pip install pep8 pyflakes pylint tmuxp virtualenvwrapper
 

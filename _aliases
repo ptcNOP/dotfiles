@@ -2,7 +2,7 @@ alias c='clear'
 alias vg='vagrant'
 alias wo='workon'
 
-alias today='date +%F'
+alias today="date +%F"
 alias now="date +%FT%T"
 
 alias gdmb="git dmb"
@@ -80,6 +80,6 @@ alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 alias wget='wget -c'
 alias df='df -H'
-alias du='du ch'
+alias du='du -ch'
 alias top='htop'
 
